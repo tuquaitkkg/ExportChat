@@ -52,6 +52,9 @@ class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, GADInte
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layoutIfNeeded()
+        loginBtn.layer.masksToBounds = true
+        loginBtn.layer.cornerRadius = loginBtn.frame.size.height/2
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         if !UserDefaults.standard.bool(forKey: Constant.keyPurchase) {
