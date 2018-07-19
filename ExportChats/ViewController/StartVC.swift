@@ -27,21 +27,22 @@ class StartVC: UIViewController {
     
     func nextVC() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PassCodeVC") as? PassCodeVC
-        let key4Degits = UserDefaults.standard.value(forKey: Constant.udKey.key_passcode_4degit) as? String
-        let key6Degits = UserDefaults.standard.value(forKey: Constant.udKey.key_passcode_6degit) as? String
-        if key4Degits != nil || key6Degits != nil {
-            if key4Degits != nil {
-                vc?.kPasswordDigit = 4
-            } else if key6Degits != nil {
-                vc?.kPasswordDigit = 6
-            } else {
-                self.gotoPasscodeOptionVC()
-                return
-            }
-        } else {
-            self.gotoPasscodeOptionVC()
-            return
-        }
+//        let key4Degits = UserDefaults.standard.value(forKey: Constant.udKey.key_passcode_4degit) as? String
+//        let key6Degits = UserDefaults.standard.value(forKey: Constant.udKey.key_passcode_6degit) as? String
+        vc?.kPasswordDigit = 6
+//        if key4Degits != nil || key6Degits != nil {
+//            if key4Degits != nil {
+//                vc?.kPasswordDigit = 4
+//            } else if key6Degits != nil {
+//
+//            } else {
+//                self.gotoPasscodeOptionVC()
+//                return
+//            }
+//        } else {
+//            self.gotoPasscodeOptionVC()
+//            return
+//        }
         self.navigationController?.pushViewController(vc!, animated: false)
     }
     

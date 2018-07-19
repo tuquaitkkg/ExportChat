@@ -27,9 +27,22 @@ class PassCodeVC: UIViewController {
         passwordContainerView = PasswordContainerView.create(withDigit: kPasswordDigit)
         passwordContainerView.delegate = self
         passwordContainerView.touchAuthenticationEnabled = true
-        passwordContainerView.passwordDotView.fillColor = UIColor.gray
-        passwordContainerView.tintColor = UIColor.gray
-        passwordContainerView.highlightedColor = UIColor.gray
+        passwordContainerView.passwordDotView.fillColor = UIColor.white
+        passwordContainerView.passwordDotView.strokeColor = UIColor.white
+        passwordContainerView.deleteButton?.setImage(UIImage(named: "ic_passcode2")!, for: .normal)
+        passwordContainerView.deleteButton?.imageEdgeInsets = UIEdgeInsetsMake(15, 15, 15, 15);
+        passwordContainerView.deleteButton?.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        passwordContainerView.touchAuthenticationButton?.setImage(UIImage(named: "ic_passcode1")!, for: .normal)
+        passwordContainerView.touchAuthenticationButton?.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        passwordContainerView.passwordInputViews.forEach { view in
+            view.highlightTextColor = UIColor(red: 50/255, green: 152/255, blue: 253/255, alpha: 1)
+            view.highlightBackgroundColor = UIColor.white
+            view.textColor = UIColor(red: 50/255, green: 152/255, blue: 253/255, alpha: 1)
+            view.backgroundColor = UIColor.white
+            view.layoutSubviews()
+        }
+        passwordContainerView.deleteButtonLocalizedTitle = ""
+        passwordContainerView.frame = CGRect(x: 0, y: 0, width: self.viewPasscode.frame.size.width, height: self.viewPasscode.frame.size.height)
         self.viewPasscode.addSubview(passwordContainerView)
         if !UserDefaults.standard.bool(forKey: Constant.keyPurchase) {
             self.loadBanner()

@@ -108,10 +108,10 @@ open class PasswordInputView: UIView {
         //update label
         label.text = numberString
         label.font = UIFont.systemFont(ofSize: radius * fontSizeRatio, weight: UIFont.Weight.medium)
-        label.textColor = UIColor.black
+        label.textColor = textColor
         
         //update circle view
-        circleView.frame = CGRect(x: 0, y: 0, width: 2 * circleRadius, height: 2 * circleRadius)
+        circleView.frame = CGRect(x: 0, y: 0, width: 3 * circleRadius, height: 3 * circleRadius)
         circleView.center = center
         circleView.layer.cornerRadius = circleRadius
         circleView.backgroundColor = circleBackgroundColor
@@ -159,7 +159,7 @@ private extension PasswordInputView {
     func touchUpAction() {
         let originFont = label.font
         label.font = UIFont.systemFont(ofSize: originFont!.pointSize, weight: UIFont.Weight.medium)
-        label.textColor = UIColor.black
+        label.textColor = textColor
         backgroundColor = UIColor.clear
         circleView.backgroundColor = circleBackgroundColor
     }

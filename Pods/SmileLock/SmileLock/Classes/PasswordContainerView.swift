@@ -18,8 +18,8 @@ open class PasswordContainerView: UIView {
     //MARK: IBOutlet
     @IBOutlet open var passwordInputViews: [PasswordInputView]!
     @IBOutlet open weak var passwordDotView: PasswordDotView!
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var touchAuthenticationButton: UIButton!
+    @IBOutlet open weak var deleteButton: UIButton!
+    @IBOutlet open weak var touchAuthenticationButton: UIButton!
     
     //MARK: Property
     open var deleteButtonLocalizedTitle: String = "" {
@@ -74,7 +74,7 @@ open class PasswordContainerView: UIView {
     open var touchAuthenticationEnabled = false {
         didSet {
             let enable = (isTouchAuthenticationAvailable && touchAuthenticationEnabled)
-            touchAuthenticationButton.alpha = enable ? 1.0 : 0.0
+            touchAuthenticationButton.alpha = enable ? 1.0 : 1.0
             touchAuthenticationButton.isUserInteractionEnabled = enable
         }
     }
