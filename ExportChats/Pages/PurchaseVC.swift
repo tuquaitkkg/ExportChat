@@ -13,11 +13,7 @@ class PurchaseVC: UIViewController {
 
     var indexClick: Int?
     let appBundleId = "com.dtteam.ShareExtensions.sub.allaccess"
-    @IBOutlet weak var btnPolicy: UIButton!
-    @IBOutlet weak var btnTerm: UIButton!
-    @IBOutlet weak var tfDes: UITextView!
     @IBOutlet weak var progressView: UIActivityIndicatorView!
-    @IBOutlet weak var btnTryNow: UIButton!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -25,15 +21,6 @@ class PurchaseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tfDes.isEditable = false
-        self.btnPolicy.layer.cornerRadius = 5.0
-        self.btnPolicy.layer.borderWidth = 1.0
-        self.btnPolicy.layer.borderColor = UIColor.black.cgColor
-        
-        self.btnTerm.layer.cornerRadius = 5.0
-        self.btnTerm.layer.borderWidth = 1.0
-        self.btnTerm.layer.borderColor = UIColor.black.cgColor
-        
         self.progressView.isHidden = true
     }
 
@@ -52,6 +39,10 @@ class PurchaseVC: UIViewController {
             }
             self.showAlert(self.alertForRestorePurchases(results))
         }
+    }
+    
+    @IBAction func closeInApp(_ sender: Any) {
+        self.callTabbarStoryboard()
     }
     
     @IBAction func policyBtn(_ sender: Any) {
@@ -108,7 +99,6 @@ class PurchaseVC: UIViewController {
     func purchase() {
         self.progressView.isHidden = false
         self.progressView.startAnimating()
-        self.btnTryNow.isEnabled = false
         NetworkActivityIndicatorManager.networkOperationStarted()
         SwiftyStoreKit.purchaseProduct(appBundleId, atomically: true) { result in
             NetworkActivityIndicatorManager.networkOperationFinished()
@@ -122,7 +112,6 @@ class PurchaseVC: UIViewController {
             if let alert = self.alertForPurchaseResult(result) {
                 self.progressView.isHidden = true
                 self.progressView.stopAnimating()
-                self.btnTryNow.isEnabled = true
                 self.showAlert(alert)
             }
         }
@@ -163,15 +152,16 @@ class PurchaseVC: UIViewController {
         case .success(let purchase):
             UserDefaults.standard.set(true, forKey: "keyPurchase")
             UserDefaults.standard.set(Date(), forKey: "keyDate")
-            print("Purchase Success: \(purchase.productId)")
+//            print("Purchase Success: \(purchase.productId)")
             return alertWithTitle("Thank You", message: "Purchase completed")
         case .error(let error):
-            print("Purchase Failed: \(error)")
+//            print("Purchase Failed: \(error)")
             switch error.code {
             case .unknown: return alertWithTitle("Purchase failed", message: error.localizedDescription)
             case .clientInvalid: // client is not allowed to issue the request, etc.
                 return alertWithTitle("Purchase failed", message: "Not allowed to make the payment")
             case .paymentCancelled: // user cancelled the request, etc.
+                self.progressView.isHidden = true
                 return nil
             case .paymentInvalid: // purchase identifier was invalid, etc.
                 return alertWithTitle("Purchase failed", message: "The purchase identifier was invalid")
@@ -192,10 +182,10 @@ class PurchaseVC: UIViewController {
     func alertForRestorePurchases(_ results: RestoreResults) -> UIAlertController {
         
         if results.restoreFailedPurchases.count > 0 {
-            print("Restore Failed: \(results.restoreFailedPurchases)")
+//            print("Restore Failed: \(results.restoreFailedPurchases)")
             return alertWithTitle("Restore failed", message: "Unknown error. Please contact support")
         } else if results.restoredPurchases.count > 0 {
-            print("Restore Success: \(results.restoredPurchases)")
+//            print("Restore Success: \(results.restoredPurchases)")
             return alertWithTitle("Purchases Restored", message: "All purchases have been restored")
         } else {
             print("Nothing to Restore")

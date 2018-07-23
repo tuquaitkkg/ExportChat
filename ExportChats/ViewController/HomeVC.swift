@@ -30,6 +30,10 @@ class HomeVC: UIViewController, GADInterstitialDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //init admob
+        self.tabBarController?.tabBar.isHidden = true
+        let newBtn = UIBarButtonItem(image: UIImage.init(named: "settings"), style: .plain, target: self, action: #selector(goToSetting))
+        self.navigationItem.leftItemsSupplementBackButton = true
+        self.navigationItem.leftBarButtonItem = newBtn
         if !UserDefaults.standard.bool(forKey: Constant.keyPurchase) {
             interstitial = createAndLoadInterstitial()
         }
@@ -41,7 +45,7 @@ class HomeVC: UIViewController, GADInterstitialDelegate {
         
         //Init Chats
         title = "Chats"
-        navigationController?.navigationBar.tintColor = UIColor.init(red: 0, green: 0.44, blue: 0.21, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor.white
         listConversation = UserDefaults.standard.array(forKey: "Conversation") as? [[String : String]]
         print(listConversation ?? "List conversation is nil")
         processMessage()
@@ -65,11 +69,18 @@ class HomeVC: UIViewController, GADInterstitialDelegate {
         self.layoutFAB()
     }
     
+    @objc func goToSetting() {
+        let tabbarSB = UIStoryboard(name: "Tabbar", bundle: nil)
+        let viewcontroller : UIViewController = tabbarSB.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        self.navigationController?.pushViewController(viewcontroller, animated: true)
+    }
+    
     //add float button
     func layoutFAB() {
         let floaty = Floaty()
         floaty.buttonColor = UIColor(red: 19.0/225.0, green: 180.0/255.0, blue: 73.0/255.0, alpha: 1.0)
         floaty.paddingY = 65
+        floaty.buttonImage = UIImage(named: "plus")!
         floaty.addItem("Go to WhatApp", icon: UIImage(named: "whatsapp")!, handler: { item in
             let whatsappURL = URL(string: "https://api.whatsapp.com")
             if let url = whatsappURL {

@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>708965207825-db76rqpc8lvn47ms23m0d8hijgukncbr.apps.googleusercontent.com</string>
+	<string>974926784633-g1jlnce4dtcgvtn32hgnuhqk2ubhj270.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.708965207825-db76rqpc8lvn47ms23m0d8hijgukncbr</string>
+	<string>com.googleusercontent.apps.974926784633-g1jlnce4dtcgvtn32hgnuhqk2ubhj270</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD2HPATpuFgbLcL0rxMNRN7SNJV_gV8lMw</string>
+	<string>AIzaSyD7X9yMNlnPY7GeYMpySQrk_sA4g0dg83s</string>
 	<key>GCM_SENDER_ID</key>
-	<string>708965207825</string>
+	<string>974926784633</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.chatsafe.message</string>
+	<string>com.software.exportchat</string>
 	<key>PROJECT_ID</key>
-	<string>chatsafe-53690</string>
+	<string>export-message</string>
 	<key>STORAGE_BUCKET</key>
-	<string>chatsafe-53690.appspot.com</string>
+	<string>export-message.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:708965207825:ios:187b7d88688b2e99</string>
+	<string>1:974926784633:ios:7392ba1362649300</string>
 	<key>DATABASE_URL</key>
-	<string>https://chatsafe-53690.firebaseio.com</string>
+	<string>https://export-message.firebaseio.com</string>
 </dict>
 </plist>

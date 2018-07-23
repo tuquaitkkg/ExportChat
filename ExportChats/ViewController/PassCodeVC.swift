@@ -49,6 +49,20 @@ class PassCodeVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        if isChangePassCode == true {
+            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -65,10 +79,7 @@ class PassCodeVC: UIViewController {
     //Function
     func nextVC() {
         if isChangePassCode {
-            let tabbarSB = UIStoryboard(name: "Tabbar", bundle: nil)
-            let viewcontroller : UITabBarController = tabbarSB.instantiateViewController(withIdentifier: "Tabbar") as! UITabBarController
-            viewcontroller.selectedIndex = 1
-            UIApplication.shared.windows.first?.rootViewController = viewcontroller
+            self.navigationController?.popViewController(animated: true)
         } else {
             let userID = UserDefaults.standard.object(forKey: Constant.udKey.key_user_id_google) as? String
             let isPurchase = UserDefaults.standard.bool(forKey: Constant.keyPurchase)

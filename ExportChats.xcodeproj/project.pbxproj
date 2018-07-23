@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903B049421018B4D0013645A /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903B049321018B4D0013645A /* TutorialViewController.swift */; };
+		903B049821018EF60013645A /* TutorialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903B049721018EF60013645A /* TutorialCollectionViewCell.swift */; };
 		CD014DCC7DB3AD40F3C9D6A2 /* Pods_ExportChats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E16BA3E69BC8E9DD36B1665 /* Pods_ExportChats.framework */; };
 		E003093620091DCA00FDE5EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E003093420091DCA00FDE5EA /* Main.storyboard */; };
 		E003093920091DCA00FDE5EA /* ExportChats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E003093720091DCA00FDE5EA /* ExportChats.xcdatamodeld */; };
@@ -77,6 +79,8 @@
 
 /* Begin PBXFileReference section */
 		3E16BA3E69BC8E9DD36B1665 /* Pods_ExportChats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExportChats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		903B049321018B4D0013645A /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		903B049721018EF60013645A /* TutorialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCollectionViewCell.swift; sourceTree = "<group>"; };
 		B7854B7C64B420E2D4082B60 /* Pods-ExportChats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExportChats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExportChats/Pods-ExportChats.debug.xcconfig"; sourceTree = "<group>"; };
 		D1D7145D7E20F1123FA6BC4D /* Pods-ExportChats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExportChats.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExportChats/Pods-ExportChats.release.xcconfig"; sourceTree = "<group>"; };
 		E003092D20091DCA00FDE5EA /* ExportChats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExportChats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +250,7 @@
 				E0E472C120164828001DEF37 /* StartVC.swift */,
 				E0DAC4A32018E8AA0066EA18 /* LoginVC.swift */,
 				E0B16D41202601420006AE3F /* TOUAndPolicyVC.swift */,
+				903B049321018B4D0013645A /* TutorialViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				E0325E2F2026C6FA00C3C83F /* ChatsTbvCell.swift */,
 				E0325E302026C6FA00C3C83F /* SettingsTbvCell.swift */,
 				E0325E292026C6BB00C3C83F /* ConversationTableViewCell.swift */,
+				903B049721018EF60013645A /* TutorialCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				E0325E312026C6FA00C3C83F /* ChatsTbvCell.swift in Sources */,
 				E0E6BC57202599E400E41DE3 /* Utils.swift in Sources */,
 				E054EC2E2022C8AD009B8D7C /* UserModel.swift in Sources */,
+				903B049821018EF60013645A /* TutorialCollectionViewCell.swift in Sources */,
 				E0325E1E2026C54300C3C83F /* ChatObj.swift in Sources */,
 				E0325E1F2026C54300C3C83F /* ConversationObj.swift in Sources */,
 				E07690AA201F863F00E00D88 /* FileManagerUtils.swift in Sources */,
@@ -556,6 +563,7 @@
 				E0B16D42202601420006AE3F /* TOUAndPolicyVC.swift in Sources */,
 				E0C38881200FA09100412572 /* CloudStorage.swift in Sources */,
 				E0C38885200FA68B00412572 /* Constant.swift in Sources */,
+				903B049421018B4D0013645A /* TutorialViewController.swift in Sources */,
 				E003093920091DCA00FDE5EA /* ExportChats.xcdatamodeld in Sources */,
 				E0325E2B2026C6BB00C3C83F /* ConversationTableViewCell.swift in Sources */,
 				E0E472C920164829001DEF37 /* PassCodeVC.swift in Sources */,

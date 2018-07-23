@@ -89,16 +89,34 @@ class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, GADInte
     }
     
     @IBAction func signInToGoogle(sender: AnyObject) {
-        if !UserDefaults.standard.bool(forKey: Constant.keyPurchase) {
-            if interstitial.isReady {
-                interstitial.present(fromRootViewController: self)
-            } else {
-                print("is Showing")
-                GIDSignIn.sharedInstance().signIn()
-            }
+//        if !UserDefaults.standard.bool(forKey: Constant.keyPurchase) {
+//            if interstitial.isReady {
+//                interstitial.present(fromRootViewController: self)
+//            } else {
+//                print("is Showing")
+//                GIDSignIn.sharedInstance().signIn()
+//            }
+//        } else {
+//            GIDSignIn.sharedInstance().signIn()
+//        }
+        if UserDefaults.standard.bool(forKey: "isTutorial") == false {
+            self.performSegue(withIdentifier: "showTutorial", sender: nil)
         } else {
-            GIDSignIn.sharedInstance().signIn()
+            if UserDefaults.standard.bool(forKey: Constant.keyPurchase) {
+                self.callTabbarStoryboard()
+            } else {
+                self.performSegue(withIdentifier: "purchaseIdf2", sender: nil)
+            }
+
         }
+        
+            /*
+             let idToken = user.authentication.idToken
+             let fullName = user.profile.name
+             let profilePicture = String(describing: GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400))
+             let email = user.profile.email
+             */
+
     }
     
     func progressWhenLogin(completion: @escaping (((Bool) -> Swift.Void))) {

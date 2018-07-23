@@ -93,9 +93,9 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
 //            self.clickIndex = 0
             let mainSB = UIStoryboard(name: "Main", bundle: nil)
-            let viewcontroller : PassCodeOptionVC = mainSB.instantiateViewController(withIdentifier: "PassCodeOptionVC") as! PassCodeOptionVC
+            let viewcontroller : PassCodeVC = mainSB.instantiateViewController(withIdentifier: "PassCodeVC") as! PassCodeVC
             viewcontroller.isChangePassCode = true
-            UIApplication.shared.windows.first?.rootViewController = viewcontroller
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
             break
 //        case 1:
 //            self.clickIndex = 1
